@@ -12,16 +12,28 @@ import fr.dta.model.Employe;
 public class MainService {
 
 	@Autowired
-	private EmployeService employeJdbcService;
+	private EmployeService employeJpaService;
+	
+	
 
 	public void start() {
 		Employe cyril = new Employe("Cyril", "Schneidenbach", "12345", new BigDecimal(50000.0), LocalDate.now());
 
 		Employe lorick = new Employe("Lorick", "Mattera", "23456", new BigDecimal(40000.0), LocalDate.now());
+		
+		Employe test = new Employe(1L, "Test", "Test", "123456", new BigDecimal(40000.0), LocalDate.now());
+		
+		employeJpaService.deleteAllEmployees();
 
-		employeJdbcService.saveEmployee(lorick);
+		employeJpaService.saveEmployee(cyril);
+		employeJpaService.saveEmployee(lorick);
+		
+		
+		
 
-		System.out.println(employeJdbcService.findAllEmployees());
+	System.out.println(employeJpaService.findBySsn("12345").toString());
+	System.out.println(employeJpaService.findBySsn("23456").toString());
+	
 
 	}
 }

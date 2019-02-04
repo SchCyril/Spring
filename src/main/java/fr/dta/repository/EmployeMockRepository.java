@@ -61,4 +61,10 @@ public class EmployeMockRepository implements EmployeRepository {
 
 	}
 
+	@Override
+	public void deleteAllEmployees() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

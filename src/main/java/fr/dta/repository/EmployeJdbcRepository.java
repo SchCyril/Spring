@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import fr.dta.exception.EmployeNotFoundException;
 import fr.dta.mapper.EmployeMapper;
 import fr.dta.model.Employe;
 
@@ -15,7 +16,7 @@ public class EmployeJdbcRepository extends AbstractJdbcRepository implements Emp
 	@Override
 	public void saveEmployee(Employe employe) {
 		this.JdbcTemplate.update(
-				"insert into employee (firstname, hiredate, lastname, salary, ssn) values (?, ?, ?, ?, ?)",
+				"insert into employe (prenom, dateEmbauche, nom, salaire, numSecu) values (?, ?, ?, ?, ?)",
 				employe.getPrenom(),
 				Date.from(employe.getDateEmbauche().atStartOfDay(ZoneId.systemDefault()).toInstant()), employe.getNom(),
 				employe.getSalaire(), employe.getNumSecu());
@@ -23,7 +24,7 @@ public class EmployeJdbcRepository extends AbstractJdbcRepository implements Emp
 
 	@Override
 	public List<Employe> findAllEmployees() {
-		return this.JdbcTemplate.query("select * from employee", new EmployeMapper());
+		return this.JdbcTemplate.query("select * from employe", new EmployeMapper());
 	}
 
 	@Override
@@ -34,11 +35,20 @@ public class EmployeJdbcRepository extends AbstractJdbcRepository implements Emp
 
 	@Override
 	public void updateEmployee(Employe employe) {
-		this.JdbcTemplate.update(
-				"update employe set firstname = ?, hiredate = ?, lastname = ?; lastname = ?, salary = ?, ssn = ? where id = ?",
+		if (this.JdbcTemplate.update(
+				"update employe set prenom = ?, dateEmbauche = ?, nom = ?, salaire = ?, numSecu = ? where id = ?",
 				employe.getPrenom(),
 				Date.from(employe.getDateEmbauche().atStartOfDay(ZoneId.systemDefault()).toInstant()), employe.getNom(),
-				employe.getSalaire(), employe.getNumSecu(), employe.getIdentifiant());
+				employe.getSalaire(), employe.getNumSecu(), employe.getId()) != 1) {
+			throw new EmployeNotFoundException("raté");
+		}
+
+	}
+
+	@Override
+	public void deleteAllEmployees() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

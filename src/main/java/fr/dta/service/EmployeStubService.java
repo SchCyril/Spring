@@ -42,4 +42,16 @@ public class EmployeStubService implements EmployeService {
 		return null;
 	}
 
+	@Override
+	public List<Employe> updateEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteAllEmployees() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

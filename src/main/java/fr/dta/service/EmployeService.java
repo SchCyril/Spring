@@ -14,4 +14,10 @@ public interface EmployeService {
 	void updateEmployee(Employe employee);
 
 	Employe findLastHired();
+	
+	List<Employe>updateEmployees();
+	
+	void deleteAllEmployees();
+	
+	
 }

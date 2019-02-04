@@ -13,4 +13,6 @@ public interface EmployeRepository {
 	Employe findBySsn(String ssn);
 
 	void updateEmployee(Employe employe);
+
+	void deleteAllEmployees();
 }

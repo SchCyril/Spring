@@ -45,4 +45,16 @@ public class EmployeMockService implements EmployeService {
 		return emr.findAllEmployees().stream().max(Comparator.comparing(Employe::getDateEmbauche)).get();
 	}
 
+	@Override
+	public List<Employe> updateEmployees() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteAllEmployees() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
