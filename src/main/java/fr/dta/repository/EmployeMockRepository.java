@@ -7,14 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
 import org.springframework.stereotype.Repository;
 
 import fr.dta.model.Employe;
 
 @Repository
-public class EmployeMockRepository implements EmployeeRepository {
+public class EmployeMockRepository implements EmployeRepository {
 
 	private List<Employe> employes;
 
@@ -40,11 +39,6 @@ public class EmployeMockRepository implements EmployeeRepository {
 				LocalDate.of(2019, Month.MAY, 15)));
 		employes.add(new Employe(3L, "Patrick", "létoualdemer", "34567", new BigDecimal(30000.0),
 				LocalDate.of(2019, Month.DECEMBER, 01)));
-	}
-
-	@PreDestroy
-	public void destroy() {
-		System.out.println("crève");
 	}
 
 	public void saveEmployee(Employe employe) {

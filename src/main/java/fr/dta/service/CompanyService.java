@@ -11,14 +11,14 @@ import fr.dta.model.Employe;
 public class CompanyService {
 
 	@Autowired
-	private EmployeMockService es;
+	private EmployeService employeMockService;
 
-	public void setEmployeeService(EmployeMockService employeeService) {
-		this.es = employeeService;
+	public void setEmployeeService(EmployeService employeMockService) {
+		this.employeMockService = employeMockService;
 	}
 
 	public List<Employe> getAllEmployees() {
-		return es.findAllEmployees();
+		return employeMockService.findAllEmployees();
 	}
 
 }

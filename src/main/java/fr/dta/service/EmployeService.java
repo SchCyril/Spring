@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.dta.model.Employe;
 
-public interface EmployeeService {
+public interface EmployeService {
 	void saveEmployee(Employe employee);
 
 	List<Employe>findAllEmployees();

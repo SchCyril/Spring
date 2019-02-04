@@ -8,21 +8,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.dta.model.Employe;
-import fr.dta.repository.EmployeeJdbcRepository;
+import fr.dta.repository.EmployeJdbcRepository;
+import fr.dta.repository.EmployeRepository;
 
 @Service
-public class EmployeJdbcService implements EmployeeService {
+@Transactional
+public class EmployeJdbcService implements EmployeService {
 
 	@Autowired
-	private EmployeeJdbcRepository employeJdbcRepository;
+	private EmployeRepository employeJdbcRepository;
 
-	public EmployeJdbcService(EmployeeJdbcRepository employeJdbcRepository) {
+	public EmployeJdbcService(EmployeJdbcRepository employeJdbcRepository) {
 
 		this.employeJdbcRepository = employeJdbcRepository;
 	}
 
 	@Override
-	 
+
 	public void saveEmployee(Employe employe) {
 		employeJdbcRepository.saveEmployee(employe);
 

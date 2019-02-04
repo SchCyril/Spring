@@ -4,9 +4,8 @@ import java.util.List;
 
 import fr.dta.model.Employe;
 
-public interface EmployeeRepository {
+public interface EmployeRepository {
 
-	
 	void saveEmployee(Employe employe);
 
 	List<Employe> findAllEmployees();

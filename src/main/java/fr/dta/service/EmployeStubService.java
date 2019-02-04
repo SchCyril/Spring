@@ -2,24 +2,20 @@ package fr.dta.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import fr.dta.model.Employe;
 
 @SuppressWarnings("unused")
 @Service
-public class EmployeStubService implements EmployeeService{
-	
-	
-	
-	private EmployeStubService ess;
+public class EmployeStubService implements EmployeService {
+
+	private EmployeService employeStubService;
 
 	@Override
 	public void saveEmployee(Employe employee) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -37,7 +33,7 @@ public class EmployeStubService implements EmployeeService{
 	@Override
 	public void updateEmployee(Employe employee) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -45,6 +41,5 @@ public class EmployeStubService implements EmployeeService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 }
